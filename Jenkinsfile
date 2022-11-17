@@ -4,8 +4,8 @@ pipeline {
         stage ('GIT') {
             steps {
                echo "Getting Project from Git"; 
-                git branch: "chedli",
-                    url: "https://github.com/Elchedli/devOps",credentialsId:'githubLogin';
+                git branch: "manel",
+                    url: "https://github.com/farahbenafia/devops",credentialsId:'loginGithub';
             }
         }
         
@@ -80,17 +80,6 @@ pipeline {
               }
         }
     }
-    post {
-            success {
-                 mail to: "chedli.elloumi@esprit.tn",
-                 subject: "success",
-                 body: "success on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL}"
-            }
-    failure {
-                mail to: "chedli.elloumi@esprit.tn",
-                 subject: "Failure",
-                 body: "Failure on job ${env.JOB_NAME}, Build Number: ${env.BUILD_NUMBER}, Build URL: ${env.BUILD_URL} "     
-            }
-    }
+
         
 }
