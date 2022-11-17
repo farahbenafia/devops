@@ -12,14 +12,6 @@ pipeline {
  
         
         
-        stage('Login dockerhub') {
-            steps {
-                 sh "sudo chmod 777 /var/run/docker.sock"
-                 sh "docker login -u shidono -p dckr_pat_5BTvF6ZtABQc9jFjAIZoz0QX-XI"
-            }
-        }
-        
-        
         stage('Build') {
             steps {
                 sh "mvn clean package -DskipTests"
@@ -52,7 +44,7 @@ pipeline {
 
         stage('SonarQube') {
             steps {
-                sh "mvn sonar:sonar -Dsonar.login=squ_6d91055b96eb44c55e1646262f6fa8707a5690c8 -DskipTests"
+                sh "mvn sonar:sonar -Dsonar.login=72caabd900dfadc6746c0e489a03d036de7250d9 -DskipTests"
             }
         }
         
