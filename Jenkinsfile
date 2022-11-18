@@ -40,8 +40,8 @@ pipeline {
         }
 
         stage('SonarQube') {
-            steps {
-                sh "mvn sonar:sonar -Dsonar.login=squ_6d91055b96eb44c55e1646262f6fa8707a5690c8 -DskipTests"
+            steps {  // usr : admin pwd : farah
+                sh "mvn sonar:sonar -Dsonar.login=squ_4989e3346dd447800ee99257febbd6a0ef79f37a -DskipTests"
             }
         }
         
